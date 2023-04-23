@@ -78,6 +78,7 @@ class WelcomePage extends StatelessWidget {
 
                                 // sign in button
                                 MyButton(
+                                  text: "Continue",
                                   onTap: (() {
                                     if (_formKey.currentState!.validate()) {
                                       Navigator.push(
@@ -108,7 +109,7 @@ class WelcomePage extends StatelessWidget {
                                       child: Text(
                                         'OR',
                                         style: TextStyle(
-                                            color: Color(0xFF828280), fontSize: 18, fontFamily: 'Karla', fontWeight: FontWeight.bold),
+                                            color: Color(0xFF828280), fontSize: 18, fontFamily: 'Karla', fontWeight: FontWeight.w500),
                                       ),
                                     ),
                                     Expanded(
@@ -166,7 +167,8 @@ class WelcomePage extends StatelessWidget {
                                             style: TextStyle(
                                                 color: Color(0xFF575756),
                                                 fontFamily: "Karla",
-                                                fontSize: 18),
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.w500),
                                             textAlign: TextAlign.start,
                                           ),
                                           const SizedBox(width: 4),
@@ -183,7 +185,7 @@ class WelcomePage extends StatelessWidget {
                                             style: TextStyle(
                                                 color: Color(0xFF03764D),
                                                 fontFamily: "Karla",
-                                                fontWeight: FontWeight.bold,
+                                                fontWeight: FontWeight.w500,
                                                 fontSize: 18),
                                           ),
                                           ),

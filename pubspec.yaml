@@ -37,6 +37,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_launcher_icons: "^0.13.0"
   flutter_auth_ui: ^3.1.0
+  intl_phone_number_input: ^0.7.3+1
+  intl_phone_field: ^3.1.0
 
 flutter_icons:
   android: true
