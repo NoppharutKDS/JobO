@@ -97,7 +97,7 @@ class MyConfirmPasswordTextField extends StatelessWidget {
             borderRadius: BorderRadius.circular(50.0)
           ),
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.grey.shade400),
+            borderSide: BorderSide(color: Color.fromRGBO(189, 189, 189, 1)),
             borderRadius: BorderRadius.circular(50.0)
           ),
           fillColor: Color(0xFFF9FAFB),

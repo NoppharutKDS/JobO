@@ -117,16 +117,14 @@ class LoginPage extends StatelessWidget {
                                   ]),
                                 ),
                                 SizedBox(
-                                    height: MediaQuery.of(context).size.height *
-                                        0.03),
+                                    height: MediaQuery.of(context).size.height *0.03),
                                 MyPasswordTextField(
                                   controller: passwordController,
                                   hintText: 'Password',
                                   obscureText: true,
                                 ),
                                 SizedBox(
-                                    height: MediaQuery.of(context).size.height *
-                                        0.03),
+                                    height: MediaQuery.of(context).size.height * 0.03),
                                 MyButton(
                                   text: "Login",
                                   onTap: (() {

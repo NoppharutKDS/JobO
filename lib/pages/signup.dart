@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:JobO/pages/login.dart';
+import 'package:JobO/pages/phone.dart';
 import 'package:flutter/material.dart';
 import 'package:JobO/components/my_button.dart';
 import 'package:JobO/components/my_textfield.dart';
@@ -19,6 +20,7 @@ class _Signup extends State<Signup> {
   // text editing controllers
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
+  final confirmpassController = TextEditingController();
 
   double _sigmaX = 5; // from 0-10
   double _sigmaY = 5; // from 0-10
@@ -125,7 +127,7 @@ class _Signup extends State<Signup> {
 
                                 const SizedBox(height: 10),
                                 MyConfirmPasswordTextField(
-                                  controller: passwordController,
+                                  controller: confirmpassController,
                                   hintText: 'Confirm Password',
                                   obscureText: true,
                                 ),
@@ -155,7 +157,7 @@ class _Signup extends State<Signup> {
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => LoginPage()),
+                                            builder: (context) => PhonePage()),
                                       );
                                     } else {
                                       print('not valid');
