@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:JobO/components/my_button.dart';
 import 'package:JobO/components/my_textfield.dart';
+import 'package:JobO/pages/welcome.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -36,7 +37,7 @@ class LoginPage extends StatelessWidget {
             alignment: Alignment.center,
             children: [
               Image.network(
-                'https://wallpaper.dog/large/20426195.jpg',
+                'https://i.pinimg.com/originals/84/2a/d6/842ad68b315b0f586c30b465221da609.jpg',
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height,
                 fit: BoxFit.cover,
@@ -47,17 +48,18 @@ class LoginPage extends StatelessWidget {
                   SizedBox(height: MediaQuery.of(context).size.height * 0.07),
                   IconButton(
                     icon: const Icon(Icons.arrow_back_ios),
-                    color: Colors.white,
+                    color: Color.fromARGB(255, 0, 0, 0),
                     onPressed: () {
-                      Navigator.pop(context);
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => WelcomePage()),);
                     },
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.26),
                   const Text("Log in",
                       style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 40,
-                          fontWeight: FontWeight.bold)),
+                          color: Color.fromARGB(255, 0, 0, 0),
+                          fontSize: 32,
+                          fontFamily: "Karla",
+                          fontWeight: FontWeight.w600)),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                   ClipRect(
                     child: BackdropFilter(
@@ -66,7 +68,7 @@ class LoginPage extends StatelessWidget {
                       child: Container(
                         padding: const EdgeInsets.symmetric(horizontal: 10.0),
                         decoration: BoxDecoration(
-                            color: Color.fromRGBO(0, 0, 0, 1)
+                            color: Color.fromRGBO(255, 255, 255, 1)
                                 .withOpacity(_opacity),
                             borderRadius:
                                 const BorderRadius.all(Radius.circular(30))),
@@ -86,27 +88,30 @@ class LoginPage extends StatelessWidget {
                                     const CircleAvatar(
                                       radius: 30,
                                       backgroundImage: NetworkImage(
-                                          'https://wallpaper.dog/large/20426195.jpg'),
+                                          'https://cie.spacefoundation.org/wp-content/uploads/2022/07/Astronaut.jpg'),
                                     ),
                                     SizedBox(
                                         width:
-                                            MediaQuery.of(context).size.width *
-                                                0.05),
+                                            MediaQuery.of(context).size.width *0.05),
                                     Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       // ignore: prefer_const_literals_to_create_immutables
                                       children: [
-                                        Text("Jane Dow",
+                                        const Text("Astro Man",
                                             style: TextStyle(
-                                                color: Colors.white,
+                                                color: Color.fromARGB(255, 0, 0, 0),
                                                 fontSize: 20,
-                                                fontWeight: FontWeight.bold)),
+                                                fontFamily: "Karla",
+                                                fontWeight: FontWeight.w600)),
                                         const SizedBox(height: 5),
-                                        Text("jane.doe@gmail.com",
-                                            style: const TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 18))
+
+                                        const Text("astro.m@gmail.com",
+                                            style: TextStyle(
+                                                color: Color(0xFF2B2B2B),
+                                                fontSize: 16,
+                                                fontFamily: "Karla",
+                                                fontWeight: FontWeight.w600))
                                       ],
                                     )
                                   ]),
@@ -114,7 +119,7 @@ class LoginPage extends StatelessWidget {
                                 SizedBox(
                                     height: MediaQuery.of(context).size.height *
                                         0.03),
-                                MyTextField(
+                                MyPasswordTextField(
                                   controller: passwordController,
                                   hintText: 'Password',
                                   obscureText: true,
@@ -122,22 +127,28 @@ class LoginPage extends StatelessWidget {
                                 SizedBox(
                                     height: MediaQuery.of(context).size.height *
                                         0.03),
-                                MyButtonAgree(
-                                  text: "Continue",
-                                  onTap: () {
-                                    Navigator.push(
+                                MyButton(
+                                  text: "Login",
+                                  onTap: (() {
+                                    if (_formKey.currentState!.validate()) {
+                                      Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => LoginPage()));
-                                  },
+                                            builder: (context) => LoginPage()),
+                                      );
+                                    } else {
+                                      print('not valid');
+                                    }
+                                  }),
                                 ),
                                 const SizedBox(height: 30),
                                 const Text('Forgot Password?',
                                     style: TextStyle(
                                         color:
-                                            Color.fromARGB(255, 71, 233, 133),
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20),
+                                            Color(0xFF03764D),
+                                        fontWeight: FontWeight.w500,
+                                        fontFamily: 'Karla',
+                                        fontSize: 18),
                                     textAlign: TextAlign.start),
                               ],
                             ),

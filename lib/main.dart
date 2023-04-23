@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'JobO Auth App',
+      title: 'JobO App',
       theme: ThemeData(
         fontFamily: 'Karla'
   ),
