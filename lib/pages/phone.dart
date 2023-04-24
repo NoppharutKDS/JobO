@@ -48,8 +48,16 @@ class _PhonePage extends State<PhonePage> {
                 fit: BoxFit.cover,
               ),
               Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+                  IconButton(
+                    icon: const Icon(Icons.arrow_back_ios),
+                    color: Color.fromARGB(255, 0, 0, 0),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.03),
                   const Text("Phone Verification",
                       style: TextStyle(
