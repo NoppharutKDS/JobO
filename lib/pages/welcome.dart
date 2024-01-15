@@ -59,7 +59,7 @@ class WelcomePage extends StatelessWidget {
                             borderRadius:
                                 BorderRadius.all(Radius.circular(30))),
                         width: MediaQuery.of(context).size.width * 0.9,
-                        height: MediaQuery.of(context).size.height * 0.55,
+                        height: MediaQuery.of(context).size.height * 0.6,
                         child: Form(
                           key: _formKey,
                           child: Center(
@@ -74,7 +74,7 @@ class WelcomePage extends StatelessWidget {
                                   obscureText: false,
                                 ),
 
-                                const SizedBox(height: 30),
+                                const SizedBox(height: 20),
 
                                 // sign in button
                                 MyButton(
@@ -146,7 +146,7 @@ class WelcomePage extends StatelessWidget {
                                   ),
                                 ),
 
-                                const SizedBox(height: 30),
+                                const SizedBox(height: 15),
 
                                 // not a member? register now
                                 Padding(
@@ -163,7 +163,7 @@ class WelcomePage extends StatelessWidget {
                                         // ignore: prefer_const_literals_to_create_immutables
                                         children: [
                                           Text(
-                                            '     Doesn\'t have an account? ',
+                                            'Doesn\'t have an account?',
                                             style: TextStyle(
                                                 color: Color(0xFF575756),
                                                 fontFamily: "Karla",
