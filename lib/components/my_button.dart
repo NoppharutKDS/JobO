@@ -19,7 +19,7 @@ class MyButton extends StatelessWidget {
           child: Text(
             text,
             style: const TextStyle(
-                color: Colors.white, fontWeight: FontWeight.w600, fontSize: 20),
+                color: Colors.white, fontWeight: FontWeight.w600, fontSize: 18),
           ),
         ),
       ),
@@ -46,7 +46,7 @@ class MyButtonAgree extends StatelessWidget {
           child: Text(
             text,
             style: const TextStyle(
-                color: Colors.white, fontFamily: 'Karla', fontSize: 20, fontWeight: FontWeight.w600),
+                color: Colors.white, fontFamily: 'Karla', fontSize: 18, fontWeight: FontWeight.w600),
           ),
         ),
       ),

@@ -64,14 +64,14 @@ class _Signup extends State<Signup> {
                       Navigator.pop(context);
                     },
                   ),
-                  const SizedBox(height: 30),
+                  const SizedBox(height: 16),
                   const Text("Create an account",
                       style: TextStyle(
                           color: Color.fromARGB(255, 0, 0, 0),
                           fontSize: 32,
                           fontFamily: "Karla",
                           fontWeight: FontWeight.w600)),
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.03),
                   ClipRect(
                     child: BackdropFilter(
                       filter:
@@ -84,7 +84,7 @@ class _Signup extends State<Signup> {
                             borderRadius:
                                 const BorderRadius.all(Radius.circular(30))),
                         width: MediaQuery.of(context).size.width * 0.9,
-                        height: MediaQuery.of(context).size.height * 0.7,
+                        height: MediaQuery.of(context).size.height * 0.75,
                         child: Form(
                           key: _formKey,
                           child: Center(
@@ -105,7 +105,7 @@ class _Signup extends State<Signup> {
                                   obscureText: false,
 
                                 ),
-                                const SizedBox(height: 30),
+                                const SizedBox(height: 10),
                                 const Text(
                                     "Password",
                                     style: TextStyle(
@@ -118,7 +118,7 @@ class _Signup extends State<Signup> {
                                   hintText: 'Password',
                                   obscureText: true,
                                 ),
-                                const SizedBox(height: 30),
+                                const SizedBox(height: 10),
                                 const Text(
                                     "Confirm Password",
                                     style: TextStyle(
@@ -132,7 +132,7 @@ class _Signup extends State<Signup> {
                                   obscureText: true,
                                 ),
 
-                                const SizedBox(height: 20),
+                                const SizedBox(height: 15),
 
                                 Column(
                                   mainAxisSize: MainAxisSize.min,
@@ -149,7 +149,7 @@ class _Signup extends State<Signup> {
                                       onChanged: (newBool) {setState(() {isChecked = newBool!;});},
                                       controlAffinity: ListTileControlAffinity.leading,
                                       ),
-                                    const SizedBox(height: 30),
+                                    const SizedBox(height: 15),
                                 MyButton(
                                   text: "Continue",
                                   onTap: (() {

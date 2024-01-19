@@ -17,7 +17,7 @@ class MyTextField extends StatelessWidget {
       validator: (val) => val!.isEmpty ? 'Invalid Email' : null,
       controller: controller,
       obscureText: obscureText,
-      style: const TextStyle(fontSize: 20),
+      style: const TextStyle(fontSize: 18),
       decoration: InputDecoration(
           suffixIcon: Icon(Icons.perm_identity),
           enabledBorder: OutlineInputBorder(
@@ -31,7 +31,7 @@ class MyTextField extends StatelessWidget {
           fillColor: Color(0xFFF9FAFB),
           filled: true,
           hintText: hintText,
-          hintStyle: TextStyle(fontSize: 20 , fontFamily: 'Karla', fontWeight: FontWeight.w500, color: Colors.grey[500])),
+          hintStyle: TextStyle(fontSize: 18 , fontFamily: 'Karla', fontWeight: FontWeight.w500, color: Colors.grey[500])),
     );
   }
 }
@@ -53,7 +53,7 @@ class MyPasswordTextField extends StatelessWidget {
       validator: (val) => val!.isEmpty ? 'Invalid Password' : null,
       controller: controller,
       obscureText: obscureText,
-      style: const TextStyle(fontSize: 20),
+      style: const TextStyle(fontSize: 18),
       decoration: InputDecoration(
           suffixIcon: const Icon(Icons.visibility_off),
           enabledBorder: OutlineInputBorder(
@@ -67,7 +67,7 @@ class MyPasswordTextField extends StatelessWidget {
           fillColor: Color(0xFFF9FAFB),
           filled: true,
           hintText: hintText,
-          hintStyle: TextStyle(fontSize: 20 , fontFamily: 'Karla', fontWeight: FontWeight.w500, color: Colors.grey[500])),
+          hintStyle: TextStyle(fontSize: 18 , fontFamily: 'Karla', fontWeight: FontWeight.w500, color: Colors.grey[500])),
     );
   }
 }
@@ -89,7 +89,7 @@ class MyConfirmPasswordTextField extends StatelessWidget {
       validator: (val) => val!.isEmpty ? 'Invalid Password' : null,
       controller: controller,
       obscureText: obscureText,
-      style: const TextStyle(fontSize: 20),
+      style: const TextStyle(fontSize: 18),
       decoration: InputDecoration(
           suffixIcon: const Icon(Icons.visibility_off),
           enabledBorder: OutlineInputBorder(
@@ -103,7 +103,7 @@ class MyConfirmPasswordTextField extends StatelessWidget {
           fillColor: Color(0xFFF9FAFB),
           filled: true,
           hintText: hintText,
-          hintStyle: TextStyle(fontSize: 20 , fontFamily: 'Karla', fontWeight: FontWeight.w500, color: Colors.grey[500])),
+          hintStyle: TextStyle(fontSize: 18 , fontFamily: 'Karla', fontWeight: FontWeight.w500, color: Colors.grey[500])),
     );
   }
 }
