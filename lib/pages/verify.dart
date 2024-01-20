@@ -1,21 +1,21 @@
 import 'dart:ui';
 import 'package:JobO/components/my_button.dart';
-import 'package:JobO/components/my_textfield.dart';
-import 'package:JobO/pages/verify.dart';
+import 'package:JobO/pages/tip1.dart';
 import 'package:JobO/pages/welcome.dart';
 import 'package:flutter/material.dart';
-import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:pinput/pinput.dart';
 
-class PhonePage extends StatefulWidget {
-  const PhonePage({super.key});
+class VerifyPage extends StatefulWidget {
+  const VerifyPage({super.key});
 
   @override
-  _PhonePage createState() => _PhonePage();  
+  _VerifyPage createState() => _VerifyPage();  
 }
-class _PhonePage extends State<PhonePage> {
+class _VerifyPage extends State<VerifyPage> {
 
   // text editing controllers
-  final phoneController = TextEditingController();
+  final otpController = TextEditingController();
+  
 
   double _sigmaX = 5; // from 0-10
   double _sigmaY = 5; // from 0-10
@@ -24,15 +24,13 @@ class _PhonePage extends State<PhonePage> {
   double _height = 300;
   final _formKey = GlobalKey<FormState>();
 
-  // sign user in method
-  void signUserIn() {
+    void signUserIn() {
     if (_formKey.currentState!.validate()) {
       print('valid');
     } else {
       print('not valid');
     }
   }
-
   @override
   Widget build(BuildContext context) => Scaffold(
       backgroundColor: Colors.grey[300],
@@ -60,13 +58,14 @@ class _PhonePage extends State<PhonePage> {
                     },
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-                  const Text("Phone Verification",
+               
+                  const Text("OTP Verification",
                       style: TextStyle(
                           color: Color.fromARGB(255, 0, 0, 0),
                           fontSize: 32,
                           fontFamily: "Karla",
                           fontWeight: FontWeight.w600)),
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.07),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.05),
                   ClipRect(
                     child: BackdropFilter(
                       filter:
@@ -79,49 +78,63 @@ class _PhonePage extends State<PhonePage> {
                             borderRadius:
                                 const BorderRadius.all(Radius.circular(30))),
                         width: MediaQuery.of(context).size.width * 0.9,
-                        height: MediaQuery.of(context).size.height * 0.65,
+                        height: MediaQuery.of(context).size.height * 0.5,
                         child: Form(
                           key: _formKey,
                           child: Center(
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               mainAxisAlignment: MainAxisAlignment.center,
+                              children:[
+                                Text("4:52",style: TextStyle(
+                          color: Color.fromARGB(255, 0, 0, 0),
+                          fontSize: 32,
+                          fontFamily: "Karla",
+                          fontWeight: FontWeight.w600)),
+                                Text("Enter the OTP sent to",style: TextStyle(
+                                  color: Color(0xFF575756),
+                                  fontFamily: "Karla",
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500),
+                                  textAlign: TextAlign.center,),
+                                SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+                                Pinput(length: 4,),
+                                SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+                              Row(
+                                  mainAxisAlignment:
+                                  MainAxisAlignment.center,
                               children: [
-                                Image.asset('assets/images/verification.png', width: 250, height: 200),
-                                SizedBox(height: MediaQuery.of(context).size.height * 0.01),
-                                const Text('Please enter your valid phone number. We will send you a 4-digit code to verify your account.',
-                                    style: TextStyle(
-                                    color: Color(0xFF575756),
-                                    fontFamily: "Karla",
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w500),
-                                    textAlign: TextAlign.center,
-                                          ),
-                                const SizedBox(height: 30),
-                                IntlPhoneField(
-                                      decoration: const InputDecoration(
-                                      labelText: 'Phone Number',
-                                      enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(color: Color.fromRGBO(130, 130, 128, 0.3)),
-                                        
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(color: Color.fromRGBO(189, 189, 189, 1)),
-                                    ),
-                                    fillColor: Color(0xFFF9FAFB),
-                                    filled: true,
-                                    ),
-                                    initialCountryCode: 'TH',
-                                    ),
+                                Text('Don\'t receive the OTP?', 
+                                style: TextStyle(
+                                  color: Color(0xFF575756),
+                                  fontFamily: "Karla",
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500),
+                                  textAlign: TextAlign.center,),
+                                  const SizedBox(width: 4),
+                                          GestureDetector(
+                                            onTap: () {
+                                              Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => WelcomePage()),
+                                      );
+                                            },
+                                          child: Text('Resend OTP',
+                                            style: TextStyle(
+                                                color: Color(0xFF03764D),
+                                                fontFamily: "Karla",
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 16))),]),
                                 SizedBox(height: MediaQuery.of(context).size.height * 0.05),
                                 MyButton(
-                                  text: "Get OTP",
+                                  text: "Verify",
                                   onTap: (() {
                                     if (_formKey.currentState!.validate()) {
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => VerifyPage()),
+                                            builder: (context) => TipPage()),
                                       );
                                     } else {
                                       print('not valid');
@@ -130,16 +143,16 @@ class _PhonePage extends State<PhonePage> {
                                 ),
                               ],
                             ),
-                          ),
                         ),
                       ),
                     ),
                   ),
+                  )
                 ],
               )
             ],
-          ),
         ),
       ),
+      )
     );
   }

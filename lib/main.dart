@@ -1,3 +1,5 @@
+import 'package:JobO/pages/tip1.dart';
+import 'package:JobO/pages/verify.dart';
 import 'package:flutter/material.dart';
 import 'pages/welcome.dart';
 
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Karla'
   ),
       debugShowCheckedModeBanner: false,
-      home: WelcomePage(),
+      home: TipPage(),
     );
   }
 }

@@ -39,6 +39,7 @@ dependencies:
   flutter_auth_ui: ^3.1.0
   intl_phone_number_input: ^0.7.3+1
   intl_phone_field: ^3.1.0
+  pinput: ^3.0.1
 
 flutter_icons:
   android: true
