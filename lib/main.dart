@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Karla'
   ),
       debugShowCheckedModeBanner: false,
-      home: TipPage(),
+      home: WelcomePage(),
     );
   }
 }
