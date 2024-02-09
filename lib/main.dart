@@ -14,9 +14,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'JobO App',
-      theme: ThemeData(fontFamily: 'Karla'),
+      theme: ThemeData(
+        fontFamily: 'Karla'
+  ),
       debugShowCheckedModeBanner: false,
-      home: WelcomePage(),
+      home: TipPage(),
     );
   }
 }
