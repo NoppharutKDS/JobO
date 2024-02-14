@@ -1,7 +1,11 @@
+import 'package:JobO/pages/editprofile.dart';
 import 'package:flutter/material.dart';
 import 'package:JobO/components/my_button.dart';
-import 'package:JobO/models/user.dart';
 import 'package:JobO/components/profile_widget.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:JobO/models/user.dart';
 
 class MyProfilePage extends StatefulWidget {
   const MyProfilePage({super.key});
@@ -11,6 +15,29 @@ class MyProfilePage extends StatefulWidget {
 }
 
 class _MyProfilePageState extends State<MyProfilePage> {
+  DocumentSnapshot? userData;
+
+  @override
+  void initState() {
+    super.initState();
+    getUserData();
+    // Assign other properties as needed
+  }
+
+  Future<void> getUserData() async {
+    try {
+      DocumentSnapshot documentSnapshot = await FirebaseFirestore.instance
+          .collection('user')
+          .doc('8xUeo5NMQPRZJuJwnoQXUTAjNGj2')
+          .get();
+      setState(() {
+        userData = documentSnapshot;
+      });
+    } catch (error) {
+      print('Error fetching user data: $error');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,22 +63,12 @@ class _MyProfilePageState extends State<MyProfilePage> {
                       },
                     ),
                     const SizedBox(width: 10),
-                    const Text(
-                      "My Profile",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 30,
-                        fontFamily: "Karla",
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
                   ],
                 ),
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.03),
               ProfileWidget(
-                imagePath:
-                    'https://images.unsplash.com/photo-1554151228-14d9def656e4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=333&q=80',
+                imagePath: userData != null ? userData!['image_path'] : '',
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.03),
               Center(child: buildName()),
@@ -61,7 +78,13 @@ class _MyProfilePageState extends State<MyProfilePage> {
                     MainAxisAlignment.center, // Align buttons in the center
                 children: [
                   EditProfileButton(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => EditProfilePage()),
+                      );
+                    },
                     text: 'Edit Profile',
                   ),
                   SizedBox(
@@ -77,9 +100,17 @@ class _MyProfilePageState extends State<MyProfilePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ReviewNumberButton(onTap: () {}, text: '59 Reviews'),
+                  ReviewNumberButton(
+                      onTap: () {},
+                      text: userData != null
+                          ? userData!['reviewNumber'].toString() + ' reviews'
+                          : '0 reviews'),
                   SizedBox(width: MediaQuery.of(context).size.width * 0.05),
-                  FollowNumberButton(onTap: () {}, text: '5 Followers'),
+                  FollowNumberButton(
+                      onTap: () {},
+                      text: userData != null
+                          ? userData!['followNumber'].toString() + ' follows'
+                          : '0 follows'),
                 ],
               ),
               const SizedBox(height: 24),
@@ -101,64 +132,64 @@ class _MyProfilePageState extends State<MyProfilePage> {
       ),
     );
   }
-}
 
-Widget buildName() => Column(
-      children: [
-        Text(
-          'Siraphop Maeprasart',
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 28,
-            color: Colors.white,
-            fontFamily: 'Karla',
-          ),
-        ),
-        const SizedBox(height: 4),
-        Center(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                width: 10,
-                height: 10,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.green,
-                ),
-              ),
-              const SizedBox(width: 8),
-              Text(
-                'Bangkok, Thailand',
-                style: TextStyle(
-                    color: Colors.grey,
-                    fontFamily: 'Karla',
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16),
-              ),
-            ],
-          ),
-        ),
-      ],
-    );
-
-Widget buildAbout() => Container(
-      padding: EdgeInsets.symmetric(horizontal: 48),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+  Widget buildName() => Column(
         children: [
-          const SizedBox(height: 16),
           Text(
-            'About Me',
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            userData != null ? userData!['username'] : '',
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 28,
+              color: Colors.white,
+              fontFamily: 'Karla',
+            ),
           ),
-          const SizedBox(height: 10),
-          Text(
-            'Certified Personal Trainer and Nutritionist with years of experience in creating effective diets and training plans focused on achieving individual customers goals in a smooth way.',
-            style: TextStyle(fontSize: 16, height: 1.4),
+          const SizedBox(height: 4),
+          Center(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  width: 10,
+                  height: 10,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.green,
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Text(
+                  'Bangkok, Thailand',
+                  style: TextStyle(
+                      color: Colors.grey,
+                      fontFamily: 'Karla',
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16),
+                ),
+              ],
+            ),
           ),
         ],
-      ),
-    );
+      );
+
+  Widget buildAbout() => Container(
+        padding: EdgeInsets.symmetric(horizontal: 48),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: 16),
+            Text(
+              'About Me',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              userData != null ? userData!['aboutme'] : '',
+              style: TextStyle(fontSize: 16, height: 1.4),
+            ),
+          ],
+        ),
+      );
+}

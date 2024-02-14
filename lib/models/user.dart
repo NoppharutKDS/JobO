@@ -1,28 +1,24 @@
-class User {
-  final String name;
-  final String username;
-  final String profileImage;
-  final String about;
-  final int reviewsNumber;
-  final int followingNumber;
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-  const User({
-    required this.name,
-    required this.username,
-    required this.profileImage,
-    required this.about,
-    required this.reviewsNumber,
-    required this.followingNumber,
+class User {
+  final String? username;
+  final String? email;
+  final String? photoUrl;
+  final String? aboutme;
+
+  User({
+    this.username,
+    this.email,
+    this.photoUrl,
+    this.aboutme,
   });
 
-  factory User.fromJson(json) {
+  factory User.fromDocument(DocumentSnapshot doc) {
     return User(
-      name: json['name'],
-      username: json['username'],
-      profileImage: json['profileImage'],
-      about: json['about'],
-      reviewsNumber: json['reviewsNumber'],
-      followingNumber: json['followingNumber'],
+      email: doc['email'] as String?,
+      username: doc['username'] as String?,
+      photoUrl: doc['image_path'] as String?,
+      aboutme: doc['aboutme'] as String?,
     );
   }
 }
