@@ -1,16 +1,17 @@
-# main
+# <img src="https://github.com/NoppharutKDS/JobO/blob/main/assets/images/JobO_w_icon.png" width="20%" height="50%">
 
-A new Flutter project.
+JobO is a internship/cooperation finder mobile application where student can apply a job for internship and company can post their hiring for internship. The target of JobO is to help students to find the quality internship and help human resource to find potential student for hiring.
 
-## Getting Started
+## Background
 
-This project is a starting point for a Flutter application.
+Many students who are currently studying Computer Engineering or Software Knowledge Engineering have a passion and potential to explore and discover new experiences in the software development field, although these students are fully ready, they struggle to find a software company that wants to have an intern. Also, we want to provide various positions in this field for the student to choose from among the well-known common positions like developers or data scientists. As mentioned, we want to create a mobile application to be a center between the company and the student to help a student find the right choice and great experience in this career path.
 
-A few resources to get you started if this is your first Flutter project:
+## Table of content:
+| Content |
+| ------------------------------ |
+| [Wiki Home](../../wiki/Home) |
+| [Vision Statement]|
+| [Features list]|
+| [Installation Instruction]|
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Requirement before starting JobO
