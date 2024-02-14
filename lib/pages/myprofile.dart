@@ -63,6 +63,15 @@ class _MyProfilePageState extends State<MyProfilePage> {
                       },
                     ),
                     const SizedBox(width: 10),
+                    const Text(
+                      "My Profile",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 30,
+                        fontFamily: "Karla",
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
                   ],
                 ),
               ),

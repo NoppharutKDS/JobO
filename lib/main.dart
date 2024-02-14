@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       title: 'JobO App',
       theme: ThemeData(fontFamily: 'Karla'),
       debugShowCheckedModeBanner: false,
-      home: WelcomePage(),
+      home: MyProfilePage(),
     );
   }
 }
