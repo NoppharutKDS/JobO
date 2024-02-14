@@ -10,7 +10,7 @@ Many students who are currently studying Computer Engineering or Software Knowle
 | Content |
 | ------------------------------ |
 | [Wiki Home](../../wiki/Home) |
-| [Vision Statement]|
+| [Vision Statement](../../wiki/Vision-Statement)|
 | [Features list]|
 | [Installation Instruction]|
 
