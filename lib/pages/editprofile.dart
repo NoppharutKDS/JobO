@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:JobO/components/my_button.dart';
 import 'package:JobO/models/user.dart';
 import 'package:JobO/components/edit_profile_widget.dart';
 import 'package:JobO/pages/myprofile.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:JobO/components/my_textfield.dart';
+import 'package:JobO/components/my_button.dart';
 
 class EditProfilePage extends StatefulWidget {
   const EditProfilePage({super.key});
@@ -61,6 +62,20 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 isEdit: true,
                 onClicked: () async {},
               ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+              TextFieldWidget(
+                label: 'Username',
+                text: 'Siraphop Maeprasart',
+                onChanged: (username) {},
+              ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+              TextFieldWidget(
+                label: 'About me',
+                text: 'My name is Phop',
+                onChanged: (aboutme) {},
+              ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+              UpdateProfile(onTap: () {}, text: 'Update Profile'),
             ],
           ),
         ),

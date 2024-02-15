@@ -1,4 +1,4 @@
-import 'package:JobO/pages/myprofile.dart';
+import 'package:JobO/pages/editprofile.dart';
 import 'package:JobO/pages/tip1.dart';
 import 'package:JobO/pages/tip2.dart';
 import 'package:JobO/pages/verify.dart';
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       title: 'JobO App',
       theme: ThemeData(fontFamily: 'Karla'),
       debugShowCheckedModeBanner: false,
-      home: MyProfilePage(),
+      home: EditProfilePage(),
     );
   }
 }
